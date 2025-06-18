@@ -2,90 +2,355 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CV - Abakar Mahamat Brahim</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    * {
       margin: 0;
-      padding: 40px;
-      background-color: #f9f9f9;
-      color: #333;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
     }
-    h1, h2 {
-      color: #001f4d;
+    body {
+      background: #f8f9fa;
+      color: #333;
+      line-height: 1.6;
+      padding: 2rem;
+    }
+    .cv-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: white;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .header {
+      background: linear-gradient(135deg, #001f4d 0%, #003366 100%);
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+      position: relative;
+    }
+    .header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect fill="%23ffffff10" x="0" y="0" width="100" height="100"/></svg>');
+      opacity: 0.1;
     }
     h1 {
       font-size: 2.5em;
-      margin-bottom: 5px;
+      margin-bottom: 1rem;
+      animation: fadeInDown 1s ease;
     }
-    p {
-      margin: 5px 0;
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+      animation: fadeInUp 1s ease;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
     .section {
-      margin-bottom: 30px;
+      padding: 2rem;
+      border-bottom: 1px solid #eee;
     }
-    .contact, .languages, .skills {
-      background-color: #eef3f7;
-      padding: 15px;
+    .section:last-child {
+      border-bottom: none;
+    }
+    h2 {
+      color: #001f4d;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #001f4d;
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 1.5rem;
+      padding-left: 1.5rem;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -0.5rem;
+      top: 0.5rem;
+      width: 1rem;
+      height: 1rem;
+      background: #001f4d;
+      border-radius: 50%;
+    }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+    .skill-category {
+      background: #f8f9fa;
+      padding: 1rem;
       border-radius: 8px;
     }
-    ul {
-      margin-top: 10px;
+    .skill-category h3 {
+      color: #001f4d;
+      margin-bottom: 0.5rem;
+    }
+    .languages {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    .language-item {
+      background: #f8f9fa;
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+    }
+    .language-item h3 {
+      color: #001f4d;
+      margin-bottom: 0.5rem;
+    }
+    .back-button {
+      display: inline-block;
+      margin: 2rem auto;
+      padding: 1rem 2rem;
+      background: #001f4d;
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      transition: all 0.3s;
+    }
+    .back-button:hover {
+      background: #003366;
+      transform: translateY(-2px);
+    }
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @media (max-width: 768px) {
+      body {
+        padding: 1rem;
+      }
+      .header {
+        padding: 2rem 1rem;
+      }
+      .contact-info {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+      .section {
+        padding: 1.5rem;
+      }
+    }
+    /* Styles spéciaux pour le PDF */
+    .pdf-export, .pdf-export * {
+      background: #fff !important;
+      color: #222 !important;
+      box-shadow: none !important;
+      text-shadow: none !important;
+    }
+    .pdf-export .header {
+      background: #f4f8fb !important;
+      color: #001f4d !important;
+    }
+    .pdf-export .back-button,
+    .pdf-export #download-pdf {
+      display: none !important;
+    }
+    @media print {
+      body, html {
+        background: #fff !important;
+        color: #222 !important;
+      }
+      .header {
+        background: #f4f8fb !important;
+        color: #001f4d !important;
+      }
+      .back-button, #download-pdf {
+        display: none !important;
+      }
     }
   </style>
 </head>
 <body>
+  <button id="download-pdf" style="position: absolute; top: 20px; right: 30px; background: #e900a3; color: #fff; border: none; border-radius: 30px; padding: 0.7rem 1.5rem; font-size: 1rem; font-weight: 500; cursor: pointer; z-index: 1000; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+    <i class="fas fa-file-download"></i> Télécharger en PDF
+  </button>
+  <div class="cv-container" id="cv-content">
+    <div class="header">
+      <h1>Abakar Mahamat Brahim</h1>
+      <div class="contact-info">
+        <div class="contact-item">
+          <i class="fas fa-calendar"></i>
+          <span>15 août 2005</span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>Abéché, Tchad</span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-phone"></i>
+          <span>+235 60 44 90 70 / 92 46 45 15</span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <span>abakarmahamatbrahim8@gmail.com</span>
+        </div>
+      </div>
+    </div>
 
-  <h1>Abakar Mahamat Brahim</h1>
-  <div class="contact">
-    <p><strong>Date de naissance :</strong> 15 août 2005</p>
-    <p><strong>Adresse :</strong> Abéché, Tchad</p>
-    <p><strong>Téléphone :</strong> +235 60 44 90 70 / 92 46 45 15</p>
-    <p><strong>Portfolio :</strong> <a href="https://abakar5.github.io/portfolio-abakar/" target="_blank">Voir en ligne</a></p>
-  </div>
+    <div class="section">
+      <h2><i class="fas fa-graduation-cap"></i> Formation</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <h3>LICENCE</h3>
+          <p> Licence en Génie Informatique (option Génie Logiciel) à l'Institut National Superieur des Sciences et techniques d'Abéché INSTA</p>
+          <p>2024 - Aujourd'hui</p>
+        </div>
+        <div class="timeline-item">
+          <h3>BAC</h3>
+          <p>Lycée national Franco-Arabe d'Abéché</p>
+          <p>2021 - 2023 </p>
+        </div>
+        <div class="timeline-item">
+          <h3>BEPC</h3>
+          <p>Collège National Franco-Arabe d'Abéché</p>
+          <p>2017 - 2020</p>
+        </div>
+        <div class="timeline-item">
+          <h3>École primaire</h3>
+          <p>LA SOUCHE</p>
+          <p>2009 - 2016</p>
+        </div>
+      </div>
+    </div>
 
-  <div class="section">
-    <h2>🎓 Formation</h2>
-    <ul>
-      <li>2009 - 2016 : École primaire à Abéché</li>
-      <li>2017 - 2020 : Collège national Franco-Arabe d'Abéché (BEPC obtenu en 2020)</li>
-      <li>2021 - 2023 : Lycée national Franco-Arabe d’Abéché (BAC obtenu en 2024)</li>
-      <li>2024 - Aujourd’hui : Licence en Génie Informatique (option Génie Logiciel) à l’Institut INSTA</li>
-    </ul>
-  </div>
+    <div class="section">
+      <h2><i class="fas fa-code"></i> Compétences techniques</h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3>Langages</h3>
+          <p>HTML, CSS, JavaScript, PHP, MySQL, Java, C</p>
+        </div>
+        <div class="skill-category">
+          <h3>Systèmes d'exploitation</h3>
+          <p>Windows, Ubuntu, Kali Linux</p>
+        </div>
+        <div class="skill-category">
+          <h3>Outils & domaines</h3>
+          <p>Développement web, conception logicielle, IA, cybersécurité, cryptographie, GitHub</p>
+        </div>
+      </div>
+    </div>
 
-  <div class="section">
-    <h2>💻 Compétences techniques</h2>
-    <div class="skills">
-      <p><strong>Langages :</strong> HTML, CSS, JavaScript, PHP, MySQL, Java, C</p>
-      <p><strong>Systèmes d’exploitation :</strong> Windows, Ubuntu, Kali Linux</p>
-      <p><strong>Outils & domaines :</strong> Développement web, conception logicielle, IA (intelligence artificielle), cybersécurité, cryptographie, GitHub</p>
+    <div class="section">
+      <h2><i class="fas fa-briefcase"></i> Projets & Expériences</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <h3>Générateur de reçus</h3>
+          <p>Application Web et Electron pour cabine téléphonique</p>
+        </div>
+        <div class="timeline-item">
+          <h3>Site CJEO</h3>
+          <p>Développement du site de l'association CJEO</p>
+        </div>
+        <div class="timeline-item">
+          <h3>Outils de gestion</h3>
+          <p>Solutions pour cybercafés et services locaux</p>
+        </div>
+        <div class="timeline-item">
+          <h3>Projets académiques</h3>
+          <p>Développement de logiciels en collaboration avec des collègues</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2><i class="fas fa-language"></i> Langues</h2>
+      <div class="languages">
+        <div class="language-item">
+          <h3>Français</h3>
+          <p>Avancé</p>
+        </div>
+        <div class="language-item">
+          <h3>Arabe</h3>
+          <p>Avancé</p>
+        </div>
+        <div class="language-item">
+          <h3>Anglais</h3>
+          <p>Intermédiaire</p>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="section">
-    <h2>🧰 Projets & Expériences</h2>
-    <ul>
-      <li>Création d’un générateur de reçus pour cabine téléphonique (version Web et Electron)</li>
-      <li>Développement du site de l’association CJEO</li>
-      <li>Travail sur des outils locaux pour cybercafés (saisie, activation Windows/Office, etc.)</li>
-      <li>Développement de petits logiciels à l’institut en collaboration avec des collègues</li>
-      <li>Formation et manipulation de logiciels IA et cryptographiques (AES, RSA, etc.)</li>
-    </ul>
+  <div style="text-align: center;">
+    <a href="index.html" class="back-button">
+      <i class="fas fa-arrow-left"></i> Retour au portfolio
+    </a>
   </div>
 
-  <div class="section">
-    <h2>🌐 Langues</h2>
-    <div class="languages">
-      <p>Français : Avancé</p>
-      <p>Arabe : Avancé</p>
-      <p>Anglais : Intermédiaire</p>
-    </div>
-  </div>
-
-  <footer style="text-align:center; margin-top:40px; color:#777;">
-    <p>&copy; 2025 - Abakar Mahamat Brahim</p>
-  </footer>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script>
+    document.getElementById('download-pdf').addEventListener('click', function () {
+      const element = document.getElementById('cv-content');
+      // Ajoute la classe pour le style PDF
+      element.classList.add('pdf-export');
+      setTimeout(() => {
+        const opt = {
+          margin:       0.3,
+          filename:     'CV_Abakar_Mahamat_Brahim.pdf',
+          image:        { type: 'jpeg', quality: 0.98 },
+          html2canvas:  { scale: 2, useCORS: true },
+          jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
+        };
+        html2pdf().set(opt).from(element).save().then(() => {
+          // Retire la classe après génération
+          element.classList.remove('pdf-export');
+        });
+      }, 100);
+    });
+  </script>
 </body>
 </html>
