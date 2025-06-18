@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="Images/logo.png">
+  <link rel="icon" type="image/png" href="images/logo.png">
   <title>Abakar Mahamat Brahim - Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -127,7 +127,7 @@
     }
     header {
       background: #4dabf7;
-      background-image: url('Images/background.png');
+      background-image: url('images/background.png');
       background-size: cover;
       background-position: center;
       color: #fff;
@@ -919,7 +919,7 @@
         <span class="bar"></span>
         <span class="bar"></span>
       </div>
-      <img src="Images/logo.png" alt="Logo" class="nav-logo-img">
+      <img src="images/logo.png" alt="Logo" class="nav-logo-img">
       <span class="nav-logo-text">Portfolio Abakar</span>
       <ul class="nav-menu">
         <li><a href="#accueil" class="active">Accueil</a></li>
@@ -934,7 +934,7 @@
 
   <header id="accueil">
     <div class="badge-dispo"><i class="fas fa-circle"></i> Disponible pour projets freelance</div>
-    <img src="Images/profil.jpg" alt="Abakar Mahamat Brahim" class="profile-picture">
+    <img src="images/profil.jpg" alt="Abakar Mahamat Brahim" class="profile-picture">
     <h1>
       Abakar Mahamat Brahim
     </h1>
@@ -1139,6 +1139,35 @@
 
       <div class="project-card">
         <div class="project-image">
+        <i class="fas fa-globe"></i>
+      </div>
+        <div class="project-content">
+          <h3 class="project-title">Site Web INSTA</h3>
+          <p class="project-description">
+            Site web pour l'Institut National Des Sciences et Techniques d'Abeche INSTA, avec gestion de contenu et espace membre.
+            <p>Mini Projet Niveau 2</p>
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">PHP</span>
+            <span class="project-tag">MySQL</span>
+            <span class="project-tag">Bootstrap</span>
+            <span class="project-tag">HTML</span>
+            <span class="project-tag">CSS</span>
+            <span class="project-tag">SQL</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/ABAKAR5" class="project-link">
+              <i class="fas fa-external-link-alt"></i> Voir le projet
+            </a>
+            <a href="https://github.com/ABAKAR5" class="project-link">
+              <i class="fab fa-github"></i> Code source
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-image">
         <i class="fas fa-desktop"></i>
         </div>
         <div class="project-content">
@@ -1168,19 +1197,19 @@
     <h2>Galerie</h2>
     <div class="gallery-container">
       <div class="gallery-item" onclick="openLightbox(0)">
-        <img src="Images/galerie1.jpg" alt="Image de galerie 1">
+        <img src="images/galerie1.jpg" alt="Image de galerie 1">
         <div class="gallery-item-title">Site WEB INSTA</div>
       </div>
       <div class="gallery-item" onclick="openLightbox(1)">
-        <img src="Images/galerie2.jpg" alt="Image de galerie 2">
+        <img src="images/galerie2.jpg" alt="Image de galerie 2">
         <div class="gallery-item-title">Logiciel de generateur de reçu</div>
       </div>
       <div class="gallery-item" onclick="openLightbox(2)">
-        <img src="Images/galerie3.jpg" alt="Image de galerie 3">
+        <img src="images/galerie3.jpg" alt="Image de galerie 3">
         <div class="gallery-item-title">Le monde avec IA</div>
       </div>
       <div class="gallery-item" onclick="openLightbox(3)">
-        <img src="Images/galerie4.jpg" alt="Image de galerie 4">
+        <img src="images/galerie4.jpg" alt="Image de galerie 4">
         <div class="gallery-item-title">Une fois a la Bibliotheaue</div>
       </div>
     </div>
@@ -1513,10 +1542,10 @@
     // Lightbox functionality
     let currentImageIndex = 0;
     const galleryImages = [
-      'Images/galerie1.jpg',
-      'Images/galerie2.jpg', 
-      'Images/galerie3.jpg',
-      'Images/galerie4.jpg'
+      'images/galerie1.jpg',
+      'images/galerie2.jpg', 
+      'images/galerie3.jpg',
+      'images/galerie4.jpg'
     ];
 
     function openLightbox(index) {
