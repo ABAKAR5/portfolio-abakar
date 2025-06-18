@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Abakar Mahamat Brahim - Informaticien</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <title>Abakar Mahamat Brahim - Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
     * {
       margin: 0;
@@ -13,133 +15,1561 @@
       font-family: 'Roboto', sans-serif;
     }
     body {
-      background: #f4f4f4;
+      background: #f8f9fa;
       color: #333;
       line-height: 1.6;
     }
-    header {
-      background: #001f4d;
+    nav {
+      background: #e900a3;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      padding: 1.2rem 0.5rem;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .nav-container {
+      width: 100%;
+      max-width: 1200px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin: 0 auto;
+      position: relative;
+    }
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+      margin-right: 10px;
+      z-index: 1001;
+      position: static;
+      top: auto;
+      left: auto;
+      transform: none;
+    }
+    .bar {
+      width: 25px;
+      height: 3px;
+      background-color: #fff;
+      border-radius: 5px;
+      transition: all 0.3s ease-in-out;
+    }
+    .nav-logo-img {
+      height: 40px;
+      width: 40px;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+    .nav-logo-text {
+      font-weight: bold;
+      font-size: 1.5rem;
       color: #fff;
-      padding: 2rem;
+      letter-spacing: 2px;
+      margin-right: 30px;
+    }
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      gap: 2rem;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.1rem;
+      position: relative;
+      padding-bottom: 2px;
+      transition: color 0.3s;
+    }
+    nav a:hover, nav a.active {
+      color: #f0f0f0;
+    }
+    nav a::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background: #f0f0f0;
+      transition: width 0.3s;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+    }
+    nav a:hover::after, nav a.active::after {
+      width: 100%;
+    }
+    .badge-dispo {
+      display: inline-flex;
+      align-items: center;
+      background: linear-gradient(90deg, #00e6d0 0%, #00bfff 100%);
+      color: #fff;
+      font-size: 0.95rem;
+      font-weight: 500;
+      border-radius: 20px;
+      padding: 0.3rem 1rem;
+      margin-bottom: 1.2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      position: absolute;
+      left: 50%;
+      top: 1.2rem;
+      transform: translateX(-50%);
+      z-index: 2;
+    }
+    .badge-dispo i {
+      margin-right: 0.5rem;
+      font-size: 1.1rem;
+    }
+    header {
+      background: #4dabf7;
+      background-image: url('images/background.png');
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      padding: 8rem 2rem 4rem;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+      min-height: 60vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
     header h1 {
-      font-size: 2.5rem;
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      letter-spacing: 1px;
+      animation: fadeInDown 1s ease;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
     }
-    header p {
-      font-size: 1.2rem;
+    header h1 img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+    }
+    header .subtitle {
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 1.5rem;
+      animation: fadeInUp 1s ease;
+    }
+    .header-location {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      color: #e0f7fa;
+    }
+    .header-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+    .header-buttons a {
+      text-decoration: none;
+      background: #fff;
+      color: #001f4d;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      font-weight: 500;
+      font-size: 1.1rem;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    }
+    .header-buttons a:hover {
+      background: #007bff;
+      color: #fff;
+      transform: translateY(-3px);
     }
     section {
-      padding: 2rem;
-      max-width: 900px;
+      padding: 4rem 2rem;
+      max-width: 1200px;
       margin: auto;
     }
     h2 {
       color: #001f4d;
+      margin-bottom: 2rem;
+      text-align: center;
+      position: relative;
+    }
+    h2::after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 3px;
+      background: #001f4d;
+      margin: 0.5rem auto;
+    }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .skill-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .skill-card:hover {
+      transform: translateY(-5px);
+    }
+    .progress-bar {
+      background: #e9ecef;
+      height: 10px;
+      border-radius: 5px;
+      margin-top: 0.5rem;
+      overflow: hidden;
+    }
+    .progress {
+      background: #001f4d;
+      height: 100%;
+      border-radius: 5px;
+      transition: width 1s ease;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .service-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.4s ease-out, box-shadow 0.4s ease-out, opacity 0.6s ease-out, transform 0.6s ease-out;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    .service-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+    .service-card.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .service-card i {
+      font-size: 2.5rem;
+      color: #e900a3;
       margin-bottom: 1rem;
     }
-    ul {
-      list-style-type: square;
-      padding-left: 1.5rem;
-    }
     .contact {
-      background: #001f4d;
+      background: linear-gradient(135deg, #e0e7ff 0%, #f8fafc 100%);
       color: white;
-      padding: 2rem;
+      padding: 4rem 2rem;
       text-align: center;
     }
-    .quote {
-      font-style: italic;
-      margin: 1rem 0;
-      text-align: center;
-    }
-    footer {
-      background: #000;
-      color: #ccc;
-      text-align: center;
-      padding: 1rem;
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
     }
     .buttons a {
       text-decoration: none;
-      background: #001f4d;
-      color: white;
-      padding: 0.8rem 1.2rem;
-      margin: 0.3rem;
-      display: inline-block;
-      border-radius: 5px;
+      background: white;
+      color: #001f4d;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
-    .buttons {
+    .buttons a:hover {
+      background: #4dabf7;
+      color: white;
+      transform: translateY(-3px);
+    }
+    .quote {
+      font-style: italic;
+      margin: 2rem 0;
       text-align: center;
-      margin-top: 1rem;
+      font-size: 1.2rem;
+      color: #666;
+    }
+    footer {
+      background: #e900a3;
+      color: #fff;
+      padding: 4rem 2rem 2rem;
+    }
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 3rem;
+    }
+    .footer-column h3 {
+      color: #fff;
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    .footer-column h3::after {
+      content: '';
+      display: block;
+      width: 30px;
+      height: 2px;
+      background: #007bff;
+      margin-top: 0.5rem;
+    }
+    .footer-about p {
+      color: #ccc;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+    .footer-links {
+      list-style: none;
+    }
+    .footer-links li {
+      margin-bottom: 0.8rem;
+    }
+    .footer-links a {
+      color: #ccc;
+      text-decoration: none;
+      transition: color 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .footer-links a:hover {
+      color: #007bff;
+    }
+    .footer-contact p {
+      color: #ccc;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .footer-social {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .social-link {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.1);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+    }
+    .social-link:hover {
+      background: #007bff;
+      transform: translateY(-3px);
+    }
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      margin-top: 3rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: #ccc;
+    }
+    @media (max-width: 768px) {
+      .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 480px) {
+      .footer-container {
+        grid-template-columns: 1fr;
+      }
+    }
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @media (max-width: 768px) {
+      .nav-container {
+        flex-wrap: nowrap;
+        padding-right: 0;
+        padding-left: 0;
+        position: relative;
+      }
+      .menu-toggle {
+        display: flex !important;
+        position: fixed;
+        left: 10px;
+        top: 18px;
+        z-index: 1100;
+        background: none;
+        box-shadow: none;
+      }
+      .nav-logo-img {
+        height: 36px;
+        width: 36px;
+        margin-left: 60px;
+        margin-right: 8px;
+      }
+      .nav-logo-text {
+        font-size: 1.1rem;
+        margin-right: 10px;
+      }
+      .nav-menu {
+        display: flex;
+        flex-direction: column;
+        width: 280px;
+        max-width: 80%;
+        background-color: #e900a3;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        padding: 6rem 1rem 1rem;
+        text-align: left;
+        box-shadow: 4px 0 10px rgba(0,0,0,0.2);
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+        z-index: 1000;
+        overflow-y: auto;
+      }
+      .nav-menu.active {
+        transform: translateX(0);
+      }
+      .nav-menu li {
+        margin: 0.8rem 0;
+      }
+      .nav-menu a {
+        padding: 0.5rem 1rem;
+        display: block;
+        width: 100%;
+      }
+      header {
+        padding: 6rem 1rem 3rem;
+      }
+      header h1 {
+        font-size: 2.2rem;
+      }
+      .header-buttons a {
+        padding: 0.8rem 1.2rem;
+        font-size: 1rem;
+      }
+    }
+    .about-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    .about-text {
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+    .about-text p {
+      margin-bottom: 1.5rem;
+    }
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .stat-item {
+      text-align: center;
+      padding: 1.5rem;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #001f4d;
+      margin-bottom: 0.5rem;
+    }
+    .stat-label {
+      color: #666;
+      font-size: 1.1rem;
+    }
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    .skill-category {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .skill-category h3 {
+      color: #001f4d;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .skill-category h3 i {
+      color: #007bff;
+    }
+    .skill-item {
+      margin-bottom: 1.5rem;
+    }
+    .skill-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+    }
+    .skill-name {
+      font-weight: 500;
+    }
+    .skill-level {
+      color: #666;
+    }
+    .progress-bar {
+      height: 8px;
+      background: #e9ecef;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .progress {
+      height: 100%;
+      background: linear-gradient(90deg, #007bff 0%, #00bfff 100%);
+      border-radius: 4px;
+      transition: width 1s ease;
+    }
+    @media (max-width: 768px) {
+      .about-container {
+        grid-template-columns: 1fr;
+      }
+      .about-stats {
+        grid-template-columns: 1fr;
+      }
+    }
+    .projects-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .project-card {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: transform 0.4s ease-out, box-shadow 0.4s ease-out, opacity 0.6s ease-out, transform 0.6s ease-out;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    .project-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+    .project-card.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .project-image {
+      width: 100%;
+      height: 200px;
+      background: #f8f9fa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: #e900a3;
+    }
+    .project-content {
+      padding: 1.5rem;
+    }
+    .project-title {
+      font-size: 1.3rem;
+      color: #001f4d;
+      margin-bottom: 0.5rem;
+    }
+    .project-description {
+      color: #666;
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .project-tag {
+      background: #e9ecef;
+      color: #001f4d;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+    }
+    .project-links {
+      display: flex;
+      gap: 1rem;
+    }
+    .project-link {
+      text-decoration: none;
+      color: #007bff;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.3s;
+    }
+    .project-link:hover {
+      color: #0056b3;
+    }
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+      background: rgba(255,255,255,0.05);
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+        padding: 2rem 1rem;
+      margin-top: 2rem;
+    }
+    .contact-info {
+      background: #fff;
+      padding: 2.5rem 2rem;
+      border-radius: 15px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 340px;
+      color: #001f4d;
+    }
+    .contact-info-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      color: #001f4d;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+      color: #001f4d;
+      background: none;
+      box-shadow: none;
+    }
+    .contact-item i {
+      font-size: 1.5rem;
+      color: #007bff;
+      min-width: 28px;
+      text-align: center;
+    }
+    .contact-form {
+      background: #fff;
+      padding: 2.5rem 2rem;
+      border-radius: 15px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+    }
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #001f4d;
+      font-weight: 500;
+    }
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #e9ecef;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.3s;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #007bff;
+    }
+    .submit-btn {
+      background: linear-gradient(90deg, #007bff 0%, #00bfff 100%);
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: transform 0.3s;
+      width: 100%;
+    }
+    .submit-btn:hover {
+      transform: translateY(-3px);
+    }
+    @media (max-width: 900px) {
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+      .contact-info, .contact-form {
+        min-height: unset;
+      }
+    }
+    .profile-picture {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-top: 3rem;
+      margin-bottom: 2rem;
+      border: 6px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.1), 0 10px 30px rgba(0, 0, 0, 0.2);
+      animation: zoomIn 1s ease forwards;
+    }
+    .gallery-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .gallery-item {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: transform 0.4s ease-out, box-shadow 0.4s ease-out, opacity 0.6s ease-out, transform 0.6s ease-out;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    .gallery-item:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+    .gallery-item.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+    .gallery-item-title {
+      padding: 1rem;
+      font-size: 1.1rem;
+      color: #001f4d;
+      font-weight: 500;
+    }
+    @keyframes zoomIn {
+      from {
+        opacity: 0;
+        transform: scale(0.5);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background-color: #e900a3; /* Ta couleur rose/magenta */
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+      z-index: 999;
+    }
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+    /* Lightbox styles */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      backdrop-filter: blur(5px);
+    }
+    .lightbox-content {
+      position: relative;
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+    }
+    .lightbox-image {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: #f1f1f1;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 10000;
+      transition: color 0.3s;
+    }
+    .lightbox-close:hover {
+      color: #e900a3;
+    }
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #f1f1f1;
+      font-size: 30px;
+      cursor: pointer;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 50%;
+      transition: all 0.3s;
+    }
+    .lightbox-nav:hover {
+      background-color: #e900a3;
+      color: white;
+    }
+    .lightbox-prev {
+      left: 20px;
+    }
+    .lightbox-next {
+      right: 20px;
+    }
+    .gallery-item {
+      cursor: pointer;
+      transition: transform 0.4s ease-out, box-shadow 0.4s ease-out, opacity 0.6s ease-out, transform 0.6s ease-out;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    .gallery-item:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+    .gallery-item.is-visible {
+      opacity: 1;
+      transform: translateY(0);
     }
   </style>
 </head>
 <body>
+  <nav>
+    <div class="nav-container">
+      <div class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+      <img src="images/logo.png" alt="Logo" class="nav-logo-img">
+      <span class="nav-logo-text">Portfolio Abakar</span>
+      <ul class="nav-menu">
+        <li><a href="#accueil" class="active">Accueil</a></li>
+        <li><a href="#about">À Propos</a></li>
+        <li><a href="#skills">Compétences</a></li>
+        <li><a href="#projects">Projets</a></li>
+        <li><a href="#gallery">Galerie</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
 
-  <header>
-    <h1>Abakar Mahamat Brahim</h1>
-    <p>Informaticien à Abéché, Tchad | Étudiant en 2e année Génie Informatique - INSTA</p>
+  <header id="accueil">
+    <div class="badge-dispo"><i class="fas fa-circle"></i> Disponible pour projets freelance</div>
+    <img src="images/profil.jpg" alt="Abakar Mahamat Brahim" class="profile-picture">
+    <h1>
+      Abakar Mahamat Brahim
+    </h1>
+    <div class="subtitle">Développeur Full-Stack Passionné</div>
+    <div class="header-location"><i class="fas fa-map-marker-alt"></i> Abéché, Tchad</div>
+    <div class="header-buttons">
+      <a href="#contact"><i class="fas fa-envelope"></i> Me Contacter</a>
+      <a href="CV.html" target="_blank"><i class="fas fa-file-alt"></i> Voir mon CV</a>
+    </div>
   </header>
 
-  <section>
+  <section id="about">
     <h2>À propos</h2>
-    <p>
-      Je suis passionné par l'informatique et les nouvelles technologies. Je développe des logiciels personnalisés, des applications web statiques ou dynamiques, et je m’intéresse à la cybersécurité et la cryptographie. Actuellement en deuxième année de Génie Informatique à l’INSTA, je combine mes études et des projets pratiques au service des particuliers et entreprises locales.
-    </p>
+    <div class="about-container">
+      <div class="about-text">
+        <p>
+          Je suis un développeur Full-Stack passionné, actuellement en deuxième année de Génie Informatique à l'INSTA. Mon parcours dans le développement web et la programmation m'a permis d'acquérir une solide expertise dans la création d'applications web modernes et performantes.
+        </p>
+        <p>
+          Ma vision est de créer des solutions numériques innovantes qui répondent aux besoins réels des utilisateurs. Je combine créativité et rigueur technique pour développer des applications qui allient esthétique et fonctionnalité.
+        </p>
+      </div>
+      <div class="about-stats">
+        <div class="stat-item">
+          <div class="stat-number" data-target="2" data-suffix="+">0</div>
+          <div class="stat-label">Années d'expérience</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-target="10" data-suffix="+">0</div>
+          <div class="stat-label">Projets réalisés</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-target="5" data-suffix="+">0</div>
+          <div class="stat-label">Technologies maîtrisées</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-target="100" data-suffix="%">0</div>
+          <div class="stat-label">Satisfaction client</div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section>
+  <section id="skills">
     <h2>Compétences</h2>
-    <ul>
-      <li>HTML, CSS, JavaScript</li>
-      <li>PHP & MySQL (sites dynamiques)</li>
-      <li>Python (scripts, GUI, cryptographie)</li>
-      <li>Electron (applications offline installables)</li>
-      <li>GitHub Pages, réseaux, sécurité</li>
-    </ul>
+    <div class="skills-container">
+      <div class="skill-category">
+        <h3><i class="fas fa-code"></i> Développement Web</h3>
+        <div class="skill-item">
+          <div class="skill-header">
+            <span class="skill-name">HTML/CSS</span>
+            <span class="skill-level" data-target="95">0%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress" style="width: 95%"></div>
+          </div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header">
+            <span class="skill-name">JavaScript</span>
+            <span class="skill-level" data-target="90">0%</span>
+          </div>
+        <div class="progress-bar">
+          <div class="progress" style="width: 90%"></div>
+        </div>
+      </div>
+        <div class="skill-item">
+          <div class="skill-header">
+            <span class="skill-name">PHP</span>
+            <span class="skill-level" data-target="85">0%</span>
+          </div>
+        <div class="progress-bar">
+          <div class="progress" style="width: 85%"></div>
+        </div>
+      </div>
+      </div>
+
+      <div class="skill-category">
+        <h3><i class="fas fa-database"></i> Bases de données</h3>
+        <div class="skill-item">
+          <div class="skill-header">
+            <span class="skill-name">MySQL</span>
+            <span class="skill-level" data-target="90">0%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress" style="width: 90%"></div>
+          </div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header">
+            <span class="skill-name">MongoDB</span>
+            <span class="skill-level" data-target="75">0%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress" style="width: 75%"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-category">
+        <h3><i class="fas fa-shield-alt"></i> Sécurité</h3>
+        <div class="skill-item">
+          <div class="skill-header">
+            <span class="skill-name">Cybersécurité</span>
+            <span class="skill-level" data-target="80">0%</span>
+          </div>
+        <div class="progress-bar">
+          <div class="progress" style="width: 80%"></div>
+        </div>
+      </div>
+        <div class="skill-item">
+          <div class="skill-header">
+            <span class="skill-name">Cryptographie</span>
+            <span class="skill-level" data-target="75">0%</span>
+          </div>
+        <div class="progress-bar">
+          <div class="progress" style="width: 75%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section>
+  <section id="services">
     <h2>Services proposés</h2>
-    <ul>
-      <li>Réparations des disques USB et autres</li>
-      <li>Installation Windows (7, 8, 10, 11)</li>
-      <li>Installation d'antivirus</li>
-      <li>Création de sites statiques</li>
-      <li>Activation de Windows et Office</li>
-      <li>Création de cartes</li>
-      <li>Formation en bureautique</li>
-      <li>Saisie de données</li>
-    </ul>
+    <div class="services-grid">
+      <div class="service-card">
+        <i class="fas fa-tools"></i>
+        <h3>Réparation</h3>
+        <p>Réparation de disques USB et autres périphériques</p>
+      </div>
+      <div class="service-card">
+        <i class="fab fa-windows"></i>
+        <h3>Installation</h3>
+        <p>Installation de Windows et logiciels</p>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-shield-virus"></i>
+        <h3>Sécurité</h3>
+        <p>Installation d'antivirus et protection</p>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-laptop-code"></i>
+        <h3>Développement</h3>
+        <p>Création de sites web et applications</p>
+      </div>
+    </div>
   </section>
 
-  <section>
+  <section id="projects">
     <h2>Projets</h2>
-    <ul>
-      <li>Générateur de reçus pour cabine téléphonique (Web et version Electron offline)</li>
-      <li>Site web pour l'association CJEO</li>
-      <li>Outils de gestion pour cybercafés et services locaux</li>
-    </ul>
+    <div class="projects-container">
+      <div class="project-card">
+        <div class="project-image">
+        <i class="fas fa-receipt"></i>
+      </div>
+        <div class="project-content">
+          <h3 class="project-title">Générateur de reçus</h3>
+          <p class="project-description">
+            Application Web et Electron pour la gestion et l'impression de reçus pour cabines téléphoniques.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">Electron</span>
+            <span class="project-tag">JavaScript</span>
+            <span class="project-tag">HTML/CSS</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/ABAKAR5" class="project-link">
+              <i class="fas fa-external-link-alt"></i> Voir le projet
+            </a>
+            <a href="https://github.com/ABAKAR5" class="project-link">
+              <i class="fab fa-github"></i> Code source
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-image">
+        <i class="fas fa-globe"></i>
+      </div>
+        <div class="project-content">
+          <h3 class="project-title">Site CJEO</h3>
+          <p class="project-description">
+            Site web moderne pour l'association CJEO, avec gestion de contenu et espace membre.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">PHP</span>
+            <span class="project-tag">MySQL</span>
+            <span class="project-tag">Bootstrap</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/ABAKAR5" class="project-link">
+              <i class="fas fa-external-link-alt"></i> Voir le projet
+            </a>
+            <a href="https://github.com/ABAKAR5" class="project-link">
+              <i class="fab fa-github"></i> Code source
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-image">
+        <i class="fas fa-desktop"></i>
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">Outils de gestion</h3>
+          <p class="project-description">
+            Solutions logicielles pour la gestion des cybercafés et services locaux.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">Python</span>
+            <span class="project-tag">SQLite</span>
+            <span class="project-tag">PyQt</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/ABAKAR5" class="project-link">
+              <i class="fas fa-external-link-alt"></i> Voir le projet
+            </a>
+            <a href="https://github.com/ABAKAR5" class="project-link">
+              <i class="fab fa-github"></i> Code source
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section>
+  <section id="gallery">
+    <h2>Galerie</h2>
+    <div class="gallery-container">
+      <div class="gallery-item" onclick="openLightbox(0)">
+        <img src="images/galerie1.jpg" alt="Image de galerie 1">
+        <div class="gallery-item-title">Site WEB INSTA</div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(1)">
+        <img src="images/galerie2.jpg" alt="Image de galerie 2">
+        <div class="gallery-item-title">Logiciel de generateur de reçu</div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(2)">
+        <img src="images/galerie3.jpg" alt="Image de galerie 3">
+        <div class="gallery-item-title">Le monde avec IA</div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(3)">
+        <img src="images/galerie4.jpg" alt="Image de galerie 4">
+        <div class="gallery-item-title">Une fois a la Bibliotheaue</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox">
+    <div class="lightbox-content">
+      <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+      <span class="lightbox-nav lightbox-prev" onclick="changeImage(-1)">&#10094;</span>
+      <span class="lightbox-nav lightbox-next" onclick="changeImage(1)">&#10095;</span>
+      <img id="lightbox-img" class="lightbox-image" src="" alt="Image agrandie">
+    </div>
+  </div>
+
+  <section id="contact" class="contact">
     <h2>Contact</h2>
-    <p>Téléphone : 60 44 90 70 / 92 46 45 15</p>
-    <p>Ville : Abéché - Tchad</p>
-    <div class="buttons">
-      <a href="https://wa.me/23560449070" target="_blank">📱 WhatsApp</a>
-      <a href="https://github.com/ABAKAR5" target="_blank">💻 Voir GitHub</a>
-      <a href="CV.html" target="_blank">📄 Télécharger mon CV</a>
+    <div class="contact-container">
+      <div class="contact-info">
+        <div class="contact-info-title">N'hésitez pas à me contacter pour toute question, projet ou collaboration !</div>
+        <div class="contact-item">
+          <i class="fas fa-phone"></i>
+          <span>+235 60 44 90 70 / +235 92 46 45 15</span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>Abéché, Tchad</span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <span>abakarmahamatbrahim8@gmail.com</span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-clock"></i>
+          <span>Lun - Ven : 8h - 18h</span>
+        </div>
+      </div>
+      <div class="contact-form">
+        <form action="https://formspree.io/f/xyzjpylk" method="POST">
+          <div class="form-group">
+            <label for="name">Nom complet</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="subject">Sujet</label>
+            <input type="text" id="subject" name="subject" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" rows="5" name="message" required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">
+            <i class="fas fa-paper-plane"></i> Envoyer le message
+          </button>
+        </form>
+      </div>
     </div>
   </section>
 
   <section class="quote">
-    <p>"Ce qu’il est fantastique avec la vie, c’est qu’elle continue."</p>
+    <p>"Ce qu'il est fantastique avec la vie, c'est qu'elle continue."</p>
   </section>
 
   <footer>
-    <p>&copy; 2025 Abakar Mahamat Brahim. Tous droits réservés.</p>
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3>À propos</h3>
+        <div class="footer-about">
+          <p>
+            Développeur Full-Stack passionné, je crée des solutions web innovantes et performantes pour répondre aux besoins de mes clients.
+          </p>
+          <div class="footer-social">
+            <a href="https://github.com/ABAKAR5" class="social-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/ABAKAR MAHAMAT BRAHIM" class="social-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+            <a href="https://x.com/ABAKARMAHA95237?t=kFWSRuwoSwROMeqmV4lvAw&s=09" class="social-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-x"></i></a>
+            <a href="https://instagram.com/abakarmahamat647" class="social-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+            <a href="https://facebook.com/abakar.mahamat.brahim.2025" class="social-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+            <a href="https://wa.me/23560449070" class="social-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-column">
+        <h3>Navigation</h3>
+        <ul class="footer-links">
+          <li><a href="#accueil"><i class="fas fa-chevron-right"></i> Accueil</a></li>
+          <li><a href="#about"><i class="fas fa-chevron-right"></i> À propos</a></li>
+          <li><a href="#skills"><i class="fas fa-chevron-right"></i> Compétences</a></li>
+          <li><a href="#projects"><i class="fas fa-chevron-right"></i> Projets</a></li>
+          <li><a href="#gallery"><i class="fas fa-chevron-right"></i> Gallerie</a></li>
+          <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3>Contact</h3>
+        <div class="footer-contact">
+          <p><i class="fas fa-phone"></i> +235 60 44 90 70 / +235 92 46 45 15</p>
+          <p><i class="fas fa-envelope"></i> abakarmahamatbrahim8@gmail.com</p>
+          <p><i class="fas fa-map-marker-alt"></i> Abéché, Tchad</p>
+          <p><i class="fas fa-clock"></i> Lun - Ven: 8h - 18h</p>
+        </div>
+      </div>
+
+      <div class="footer-column">
+        <h3>Services</h3>
+        <ul class="footer-links">
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Développement Web</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Applications Desktop</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Maintenance</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Formation</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2024 Abakar Mahamat Brahim. Tous droits réservés.</p>
+    </div>
   </footer>
 
+  <script>
+    // Animation des barres de progression
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.width = entry.target.getAttribute('data-width');
+        }
+      });
+    });
+
+    document.querySelectorAll('.progress').forEach(progress => {
+      progress.style.width = '0';
+      observer.observe(progress);
+    });
+
+    // Highlight active nav link on scroll
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('nav ul li a');
+
+    const options = {
+      threshold: 0.5, // 50% de la section visible
+      rootMargin: "-50px 0px -50px 0px" // Ajuste les marges pour une meilleure détection
+    };
+
+    const sectionObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const currentId = entry.target.id;
+
+          navLinks.forEach(link => {
+            link.classList.remove('active');
+          });
+
+          const activeLink = document.querySelector(`nav ul li a[href="#${currentId}"]`);
+          if (activeLink) {
+            activeLink.classList.add('active');
+          }
+        }
+      });
+    }, options);
+
+    sections.forEach(section => {
+      sectionObserver.observe(section);
+    });
+
+    // Smooth scroll for navigation links
+    document.querySelectorAll('nav a').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Counter animation for stats and skills
+    const counterObserverOptions = {
+      threshold: 0.7 // Déclenche quand 70% de l'élément est visible
+    };
+
+    const animateCounter = (entry, observer) => {
+      if (entry.isIntersecting) {
+        const targetElement = entry.target;
+        const targetValue = parseInt(targetElement.getAttribute('data-target'));
+        const suffix = targetElement.getAttribute('data-suffix') || '';
+        const duration = 2000; // 2 secondes
+        let startValue = 0;
+        let startTime = null;
+
+        const animateStep = (timestamp) => {
+          if (!startTime) startTime = timestamp;
+          const progress = (timestamp - startTime) / duration;
+          const currentValue = Math.min(progress * targetValue, targetValue);
+          targetElement.textContent = Math.floor(currentValue) + suffix;
+
+          if (currentValue < targetValue) {
+            requestAnimationFrame(animateStep);
+          } else {
+            observer.unobserve(targetElement);
+          }
+        };
+
+        requestAnimationFrame(animateStep);
+      }
+    };
+
+    const animateSkillPercentage = (entry, observer) => {
+      if (entry.isIntersecting) {
+        const targetElement = entry.target;
+        const targetValue = parseInt(targetElement.getAttribute('data-target'));
+        const progressBar = targetElement.closest('.skill-item').querySelector('.progress');
+        const duration = 2000; // 2 secondes
+        let startValue = 0;
+        let startTime = null;
+
+        const animateStep = (timestamp) => {
+          if (!startTime) startTime = timestamp;
+          const progress = (timestamp - startTime) / duration;
+          const currentValue = Math.min(progress * targetValue, targetValue);
+          targetElement.textContent = Math.floor(currentValue) + '% ';
+          progressBar.style.width = Math.floor(currentValue) + '% ';
+
+          if (currentValue < targetValue) {
+            requestAnimationFrame(animateStep);
+          } else {
+            observer.unobserve(targetElement);
+          }
+        };
+
+        requestAnimationFrame(animateStep);
+      }
+    };
+
+    const statNumbers = document.querySelectorAll('.stat-number');
+    const skillLevels = document.querySelectorAll('.skill-level');
+
+    const statObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => animateCounter(entry, observer));
+    }, counterObserverOptions);
+
+    statNumbers.forEach(num => statObserver.observe(num));
+
+    const skillObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => animateSkillPercentage(entry, observer));
+    }, counterObserverOptions);
+
+    skillLevels.forEach(skill => skillObserver.observe(skill));
+
+    // Service card animation on scroll
+    const serviceCards = document.querySelectorAll('.service-card');
+
+    const serviceCardObserverOptions = {
+      threshold: 0.3 // Déclenche quand 30% de la carte est visible
+    };
+
+    const serviceCardObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target); // Arrête d'observer une fois l'animation déclenchée
+        }
+      });
+    }, serviceCardObserverOptions);
+
+    serviceCards.forEach(card => serviceCardObserver.observe(card));
+
+    // Project card animation on scroll
+    const projectCards = document.querySelectorAll('.project-card');
+
+    const projectCardObserverOptions = {
+      threshold: 0.3 // Déclenche quand 30% de la carte est visible
+    };
+
+    const projectCardObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target); // Arrête d'observer une fois l'animation déclenchée
+        }
+      });
+    }, projectCardObserverOptions);
+
+    projectCards.forEach(card => projectCardObserver.observe(card));
+
+    // Gallery item animation on scroll
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    const galleryItemObserverOptions = {
+      threshold: 0.3 // Déclenche quand 30% de l'élément est visible
+    };
+
+    const galleryItemObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target); // Arrête d'observer une fois l'animation déclenchée
+        }
+      });
+    }, galleryItemObserverOptions);
+
+    galleryItems.forEach(item => galleryItemObserver.observe(item));
+
+    // Back to Top Button logic
+    const backToTopButton = document.createElement('a');
+    backToTopButton.href = '#accueil';
+    backToTopButton.classList.add('back-to-top');
+    backToTopButton.innerHTML = '<i class="fas fa-arrow-up"></i>';
+    document.body.appendChild(backToTopButton);
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) { // Show button after scrolling 300px
+        backToTopButton.classList.add('show');
+      } else {
+        backToTopButton.classList.remove('show');
+      }
+    });
+
+    backToTopButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      document.querySelector('#accueil').scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+
+    // Lightbox functionality
+    let currentImageIndex = 0;
+    const galleryImages = [
+      'images/galerie1.jpg',
+      'images/galerie2.jpg', 
+      'images/galerie3.jpg',
+      'images/galerie4.jpg'
+    ];
+
+    function openLightbox(index) {
+      currentImageIndex = index;
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      lightboxImg.src = galleryImages[index];
+      lightbox.style.display = 'block';
+      document.body.style.overflow = 'hidden'; // Prevent scrolling
+    }
+
+    function closeLightbox() {
+      const lightbox = document.getElementById('lightbox');
+      lightbox.style.display = 'none';
+      document.body.style.overflow = 'auto'; // Restore scrolling
+    }
+
+    function changeImage(direction) {
+      currentImageIndex = (currentImageIndex + direction + galleryImages.length) % galleryImages.length;
+      const lightboxImg = document.getElementById('lightbox-img');
+      lightboxImg.src = galleryImages[currentImageIndex];
+    }
+
+    // Close lightbox when clicking outside the image
+    document.getElementById('lightbox').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeLightbox();
+      }
+    });
+
+    // Close lightbox with Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeLightbox();
+      }
+    });
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const mobileMenu = document.getElementById('mobile-menu');
+      const navMenu = document.querySelector('.nav-menu');
+
+      mobileMenu.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+      });
+
+      // Close the menu when a link is clicked (for single-page navigation)
+      document.querySelectorAll('.nav-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+          navMenu.classList.remove('active');
+        });
+      });
+    });
+  </script>
 </body>
 </html>
