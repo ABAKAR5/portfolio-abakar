@@ -909,6 +909,49 @@
       opacity: 1;
       transform: translateY(0);
     }
+    /* --- Ajouts pour stabilité mobile --- */
+    html, body {
+      max-width: 100vw;
+      overflow-x: hidden;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    @media (max-width: 600px) {
+      .about-container,
+      .skills-container,
+      .projects-container,
+      .gallery-container,
+      .contact-container {
+        grid-template-columns: 1fr !important;
+        gap: 1.2rem !important;
+        padding: 0 !important;
+      }
+      section {
+        padding: 2rem 0.5rem !important;
+      }
+      .footer-container {
+        grid-template-columns: 1fr !important;
+        gap: 1.2rem !important;
+      }
+      .profile-picture {
+        width: 100px;
+        height: 100px;
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+      }
+      .nav-menu {
+        width: 90vw !important;
+        max-width: 90vw !important;
+        left: 0 !important;
+        padding: 5rem 0.5rem 1rem !important;
+      }
+      .nav-logo-img {
+        margin-left: 50px !important;
+      }
+    }
   </style>
 </head>
 <body>
