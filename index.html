@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Abakar Mahamat Brahim — Ingénieur logiciel, développeur Full-Stack et formateur basé à Abéché, Tchad.">
   <link rel="icon" type="image/png" href="images/logo.png">
   <title>Abakar Mahamat Brahim — Développeur Full-Stack</title>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -34,14 +35,13 @@
       background: rgba(8,5,46,0.75); backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--card-border);
     }
-    .nav-brand { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
-    .nav-brand img { width: 36px; height: 36px; border-radius: 8px; object-fit: contain; }
+    .nav-brand { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; }
     .nav-brand-text { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.15rem; color: var(--white); letter-spacing: -0.02em; }
     .nav-brand-text span { color: var(--pink); }
     .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 1100; }
     .bar { width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: all 0.3s; }
-    nav ul { display: flex; gap: 2rem; list-style: none; }
-    nav ul a { color: var(--gray); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.3s; position: relative; }
+    nav ul { display: flex; gap: 1.6rem; list-style: none; }
+    nav ul a { color: var(--gray); text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: color 0.3s; position: relative; white-space: nowrap; }
     nav ul a::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 0; height: 2px; background: var(--pink); transition: width 0.3s; }
     nav ul a:hover, nav ul a.active { color: var(--white); }
     nav ul a:hover::after, nav ul a.active::after { width: 100%; }
@@ -78,12 +78,14 @@
     }
     .hero-inner h1 { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(2.4rem,6vw,4.2rem); letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 1rem; animation: fadeUp 0.8s ease 0.1s both; }
     .hero-inner h1 em { font-style: normal; background: linear-gradient(90deg, var(--pink) 0%, var(--cyan) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .hero-subtitle { font-size: 1.2rem; color: var(--gray); font-weight: 300; margin-bottom: 0.8rem; animation: fadeUp 0.8s ease 0.2s both; }
+    .hero-subtitle-wrap { height: 1.6rem; margin-bottom: 0.8rem; animation: fadeUp 0.8s ease 0.2s both; }
+    .hero-subtitle { font-size: 1.2rem; color: var(--gray); font-weight: 300; }
+    .hero-subtitle .cursor { color: var(--pink); font-weight: 400; }
     .hero-location { display: inline-flex; align-items: center; gap: 0.4rem; color: var(--gray); font-size: 0.9rem; margin-bottom: 2.5rem; animation: fadeUp 0.8s ease 0.3s both; }
     .hero-location i { color: var(--pink); }
     .hero-cta { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; animation: fadeUp 0.8s ease 0.4s both; }
 
-    .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--pink); color: #fff; padding: 0.85rem 2rem; border-radius: 50px; font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: all 0.3s; box-shadow: 0 0 30px rgba(233,0,163,0.3); }
+    .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--pink); color: #fff; padding: 0.85rem 2rem; border-radius: 50px; font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: all 0.3s; box-shadow: 0 0 30px rgba(233,0,163,0.3); border: none; cursor: pointer; }
     .btn-primary:hover { background: var(--pink-light); transform: translateY(-3px); box-shadow: 0 0 50px rgba(233,0,163,0.5); }
     .btn-outline { display: inline-flex; align-items: center; gap: 0.5rem; border: 1px solid var(--card-border); background: var(--card-bg); color: var(--white); padding: 0.85rem 2rem; border-radius: 50px; font-weight: 500; font-size: 0.95rem; text-decoration: none; backdrop-filter: blur(10px); transition: all 0.3s; }
     .btn-outline:hover { border-color: rgba(255,255,255,0.25); background: rgba(255,255,255,0.07); transform: translateY(-3px); }
@@ -105,6 +107,19 @@
     .stat-card:hover { border-color: rgba(233,0,163,0.3); transform: translateY(-4px); }
     .stat-number { font-family: 'Syne', sans-serif; font-size: 2.5rem; font-weight: 800; background: linear-gradient(135deg, var(--pink) 0%, var(--cyan) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
     .stat-label { color: var(--gray); font-size: 0.85rem; margin-top: 0.25rem; }
+
+    /* TIMELINE */
+    .timeline { position: relative; max-width: 780px; margin: 0 auto; }
+    .timeline::before { content: ''; position: absolute; left: 20px; top: 0; bottom: 0; width: 2px; background: linear-gradient(180deg, var(--pink) 0%, var(--cyan) 100%); opacity: 0.35; }
+    .timeline-item { position: relative; padding-left: 60px; margin-bottom: 2.2rem; opacity: 0; transform: translateY(20px); }
+    .timeline-item.is-visible { opacity: 1; transform: translateY(0); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .timeline-dot { position: absolute; left: 11px; top: 4px; width: 20px; height: 20px; border-radius: 50%; background: var(--navy); border: 3px solid var(--pink); display: flex; align-items: center; justify-content: center; }
+    .timeline-dot i { font-size: 0.65rem; color: var(--pink-light); }
+    .timeline-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 1.5rem 1.7rem; backdrop-filter: blur(10px); }
+    .timeline-role { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.05rem; color: var(--white); margin-bottom: 0.15rem; }
+    .timeline-org { color: var(--pink-light); font-size: 0.85rem; font-weight: 600; margin-bottom: 0.6rem; }
+    .timeline-desc { color: var(--gray); font-size: 0.9rem; line-height: 1.6; }
+    .timeline-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.8rem; }
 
     /* SKILLS */
     .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px,1fr)); gap: 1.5rem; }
@@ -134,7 +149,8 @@
     .project-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 20px; overflow: hidden; opacity: 0; transform: translateY(30px); }
     .project-card.is-visible { opacity: 1; transform: translateY(0); transition: opacity 0.6s ease, transform 0.6s ease, border-color 0.3s, box-shadow 0.3s; }
     .project-card:hover { border-color: rgba(233,0,163,0.3); transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
-    .project-thumb { height: 150px; background: linear-gradient(135deg, rgba(233,0,163,0.15) 0%, rgba(6,182,212,0.1) 100%); display: flex; align-items: center; justify-content: center; font-size: 2.8rem; color: var(--pink); }
+    .project-thumb { height: 150px; background: linear-gradient(135deg, rgba(233,0,163,0.15) 0%, rgba(6,182,212,0.1) 100%); display: flex; align-items: center; justify-content: center; font-size: 2.8rem; color: var(--pink); position: relative; }
+    .project-flagship { position: absolute; top: 0.7rem; right: 0.7rem; background: var(--pink); color: #fff; font-size: 0.65rem; font-weight: 700; padding: 0.25rem 0.6rem; border-radius: 50px; letter-spacing: 0.03em; }
     .project-body { padding: 1.5rem; }
     .project-title { font-family: 'Syne', sans-serif; font-size: 1.05rem; font-weight: 700; color: var(--white); margin-bottom: 0.5rem; }
     .project-desc { color: var(--gray); font-size: 0.88rem; margin-bottom: 1.2rem; line-height: 1.6; }
@@ -143,6 +159,15 @@
     .project-links { display: flex; gap: 1rem; }
     .project-link { color: var(--gray); text-decoration: none; font-size: 0.84rem; font-weight: 500; display: flex; align-items: center; gap: 0.35rem; transition: color 0.3s; }
     .project-link:hover { color: var(--pink-light); }
+
+    /* CERTIFICATIONS */
+    .certs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 1.5rem; }
+    .cert-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 1.6rem; display: flex; gap: 1rem; align-items: flex-start; backdrop-filter: blur(10px); transition: border-color 0.3s, transform 0.3s; }
+    .cert-card:hover { border-color: rgba(233,0,163,0.3); transform: translateY(-4px); }
+    .cert-icon { width: 44px; height: 44px; flex-shrink: 0; background: rgba(6,182,212,0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+    .cert-icon i { color: var(--cyan); font-size: 1.1rem; }
+    .cert-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.95rem; color: var(--white); margin-bottom: 0.25rem; }
+    .cert-org { color: var(--gray); font-size: 0.82rem; }
 
     /* GALLERY */
     .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 1.2rem; }
@@ -210,7 +235,16 @@
     .back-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
     .back-to-top:hover { transform: translateY(-4px); }
 
+    /* FLOATING WHATSAPP */
+    .whatsapp-float { position: fixed; bottom: 2rem; left: 2rem; width: 52px; height: 52px; background: #25d366; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.4rem; text-decoration: none; z-index: 999; box-shadow: 0 4px 20px rgba(37,211,102,0.5); animation: pulseWa 2.4s ease-in-out infinite; }
+    .whatsapp-float:hover { transform: scale(1.08); }
+    @keyframes pulseWa { 0%,100% { box-shadow: 0 0 0 0 rgba(37,211,102,0.5); } 50% { box-shadow: 0 0 0 10px rgba(37,211,102,0); } }
+
     /* MOBILE */
+    @media (max-width: 900px) {
+      nav ul { gap: 1.1rem; }
+      nav ul a { font-size: 0.82rem; }
+    }
     @media (max-width: 768px) {
       .menu-toggle { display: flex; }
       nav ul { position: fixed; top: 0; left: 0; width: 78vw; max-width: 300px; height: 100vh; background: rgba(8,5,46,0.98); backdrop-filter: blur(20px); flex-direction: column; gap: 0; padding: 5rem 1.5rem 2rem; transform: translateX(-100%); transition: transform 0.35s ease; border-right: 1px solid var(--card-border); z-index: 1050; }
@@ -219,6 +253,8 @@
       .about-grid, .contact-wrap { grid-template-columns: 1fr; gap: 2rem; }
       .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
       .form-row { grid-template-columns: 1fr; }
+      .whatsapp-float { width: 46px; height: 46px; font-size: 1.2rem; bottom: 1.2rem; left: 1.2rem; }
+      .back-to-top { bottom: 1.2rem; right: 1.2rem; }
     }
     @media (max-width: 500px) {
       .footer-grid { grid-template-columns: 1fr; }
@@ -228,13 +264,16 @@
 
     @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes zoomIn { from { opacity: 0; transform: scale(0.7); } to { opacity: 1; transform: scale(1); } }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+    }
   </style>
 </head>
 <body>
 
   <nav id="navbar">
     <a href="#accueil" class="nav-brand">
-      <img src="images/logo.png" alt="Logo">
       <span class="nav-brand-text">Abakar<span>.</span></span>
     </a>
     <div class="menu-toggle" id="mobile-menu">
@@ -243,6 +282,7 @@
     <ul class="nav-menu" id="nav-menu">
       <li><a href="#accueil" class="active">Accueil</a></li>
       <li><a href="#about">À Propos</a></li>
+      <li><a href="#parcours">Parcours</a></li>
       <li><a href="#skills">Compétences</a></li>
       <li><a href="#projects">Projets</a></li>
       <li><a href="#gallery">Galerie</a></li>
@@ -258,11 +298,13 @@
       </div>
       <img src="images/profil.jpg" alt="Abakar Mahamat Brahim" class="profile-picture">
       <h1>Abakar Mahamat<br><em>Brahim</em></h1>
-      <p class="hero-subtitle">Développeur Full-Stack Passionné</p>
+      <div class="hero-subtitle-wrap">
+        <span class="hero-subtitle" id="typewriter"></span><span class="hero-subtitle cursor">|</span>
+      </div>
       <div class="hero-location"><i class="fas fa-map-marker-alt"></i> Abéché, Tchad</div>
       <div class="hero-cta">
         <a href="#contact" class="btn-primary"><i class="fas fa-envelope"></i> Me Contacter</a>
-        <a href="CV.html" target="_blank" class="btn-outline"><i class="fas fa-file-alt"></i> Voir mon CV</a>
+        <a href="cv.pdf" download class="btn-outline"><i class="fas fa-file-arrow-down"></i> Télécharger mon CV</a>
       </div>
     </div>
   </header>
@@ -274,17 +316,63 @@
     </div>
     <div class="about-grid">
       <div class="about-text">
-        <p>Je suis un <strong>développeur Full-Stack</strong> passionné, actuellement en troisième année de Génie Informatique à l'<strong>INSTA</strong>. Mon parcours dans le développement web et la programmation m'a permis d'acquérir une solide expertise dans la création d'applications web modernes et performantes.</p>
-        <p>Ma vision est de créer des <strong>solutions numériques innovantes</strong> qui répondent aux besoins réels des utilisateurs. Je combine créativité et rigueur technique pour développer des applications qui allient esthétique et fonctionnalité.</p>
+        <p>Je suis <strong>Ingénieur Logiciel en formation</strong>, actuellement en troisième année de Génie Logiciel à l'<strong>INSTA d'Abéché</strong>. En parallèle de mes études, je travaille comme <strong>formateur en informatique au CCIT</strong>, maintenancier informatique et technicien dans un cybercafé — un quotidien qui garde mes compétences ancrées dans des besoins réels.</p>
+        <p>Je suis aussi le fondateur de <strong>TchadDev</strong>, une communauté qui donne de la visibilité aux jeunes développeurs tchadiens. Ma vision : créer des <strong>solutions numériques innovantes</strong>, du site vitrine à l'application propulsée par l'IA, adaptées aux besoins concrets du Tchad.</p>
         <div style="margin-top:2rem;">
           <a href="#contact" class="btn-primary" style="display:inline-flex;"><i class="fas fa-arrow-right"></i> Travailler ensemble</a>
         </div>
       </div>
       <div class="about-stats">
-        <div class="stat-card"><div class="stat-number" data-target="2" data-suffix="+">0</div><div class="stat-label">Années d'expérience</div></div>
+        <div class="stat-card"><div class="stat-number" data-target="3" data-suffix="+">0</div><div class="stat-label">Années d'expérience</div></div>
         <div class="stat-card"><div class="stat-number" data-target="10" data-suffix="+">0</div><div class="stat-label">Projets réalisés</div></div>
-        <div class="stat-card"><div class="stat-number" data-target="5" data-suffix="+">0</div><div class="stat-label">Technologies maîtrisées</div></div>
-        <div class="stat-card"><div class="stat-number" data-target="100" data-suffix="%">0</div><div class="stat-label">Satisfaction client</div></div>
+        <div class="stat-card"><div class="stat-number" data-target="8" data-suffix="+">0</div><div class="stat-label">Technologies maîtrisées</div></div>
+        <div class="stat-card"><div class="stat-number" data-target="100" data-suffix="%">0</div><div class="stat-label">Engagement client</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="parcours">
+    <div class="section-header">
+      <span class="section-label">Mon parcours</span>
+      <h2>Expériences</h2>
+      <p class="section-desc">Ce que je fais au quotidien, entre études, formation et terrain.</p>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"><i class="fas fa-laptop-code"></i></div>
+        <div class="timeline-card">
+          <div class="timeline-role">Développeur Freelance</div>
+          <div class="timeline-org">Indépendant</div>
+          <p class="timeline-desc">Conception et développement d'applications web et mobiles pour particuliers et associations : sites vitrines, plateformes de gestion, outils métier.</p>
+          <div class="timeline-tags"><span class="tag">Django</span><span class="tag">Laravel</span><span class="tag">Flutter</span></div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"><i class="fas fa-chalkboard-user"></i></div>
+        <div class="timeline-card">
+          <div class="timeline-role">Formateur Informatique</div>
+          <div class="timeline-org">CCIT Abéché</div>
+          <p class="timeline-desc">Formation à KoboToolbox et KoboCollect, initiation à l'informatique bureautique et à la programmation, accompagnement d'étudiants.</p>
+          <div class="timeline-tags"><span class="tag">KoboToolbox</span><span class="tag">Bureautique</span><span class="tag">Pédagogie</span></div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"><i class="fas fa-screwdriver-wrench"></i></div>
+        <div class="timeline-card">
+          <div class="timeline-role">Maintenancier Informatique</div>
+          <div class="timeline-org">Missions indépendantes</div>
+          <p class="timeline-desc">Installation de Windows et de logiciels, réparation de PC, configuration réseau et d'imprimantes pour particuliers et petites structures.</p>
+          <div class="timeline-tags"><span class="tag">Windows</span><span class="tag">Réseau</span><span class="tag">Hardware</span></div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"><i class="fas fa-print"></i></div>
+        <div class="timeline-card">
+          <div class="timeline-role">Technicien Cybercafé</div>
+          <div class="timeline-org">Cybercafé, Abéché</div>
+          <p class="timeline-desc">Assistance informatique aux clients, impression, scan, services administratifs et maintenance du réseau local.</p>
+          <div class="timeline-tags"><span class="tag">Support</span><span class="tag">Impression</span><span class="tag">Réseau</span></div>
+        </div>
       </div>
     </div>
   </section>
@@ -297,23 +385,25 @@
     </div>
     <div class="skills-grid">
       <div class="skill-card">
-        <h3><i class="fas fa-code"></i> Développement Web</h3>
+        <h3><i class="fas fa-code"></i> Frontend & Langages</h3>
         <div class="skill-item"><div class="skill-header"><span class="skill-name">Python</span><span class="skill-level" data-target="95">0%</span></div><div class="progress-bar"><div class="progress" data-w="95%"></div></div></div>
         <div class="skill-item"><div class="skill-header"><span class="skill-name">HTML / CSS</span><span class="skill-level" data-target="95">0%</span></div><div class="progress-bar"><div class="progress" data-w="95%"></div></div></div>
         <div class="skill-item"><div class="skill-header"><span class="skill-name">JavaScript</span><span class="skill-level" data-target="90">0%</span></div><div class="progress-bar"><div class="progress" data-w="90%"></div></div></div>
         <div class="skill-item"><div class="skill-header"><span class="skill-name">PHP</span><span class="skill-level" data-target="85">0%</span></div><div class="progress-bar"><div class="progress" data-w="85%"></div></div></div>
       </div>
       <div class="skill-card">
-        <h3><i class="fas fa-database"></i> Bases de données</h3>
-        <div class="skill-item"><div class="skill-header"><span class="skill-name">MySQL</span><span class="skill-level" data-target="90">0%</span></div><div class="progress-bar"><div class="progress" data-w="90%"></div></div></div>
-        <div class="skill-item"><div class="skill-header"><span class="skill-name">MongoDB</span><span class="skill-level" data-target="75">0%</span></div><div class="progress-bar"><div class="progress" data-w="75%"></div></div></div>
-        <div class="skill-item"><div class="skill-header"><span class="skill-name">SQLite</span><span class="skill-level" data-target="85">0%</span></div><div class="progress-bar"><div class="progress" data-w="85%"></div></div></div>
+        <h3><i class="fas fa-server"></i> Backend & Frameworks</h3>
+        <div class="skill-item"><div class="skill-header"><span class="skill-name">Django / Flask</span><span class="skill-level" data-target="88">0%</span></div><div class="progress-bar"><div class="progress" data-w="88%"></div></div></div>
+        <div class="skill-item"><div class="skill-header"><span class="skill-name">Laravel</span><span class="skill-level" data-target="85">0%</span></div><div class="progress-bar"><div class="progress" data-w="85%"></div></div></div>
+        <div class="skill-item"><div class="skill-header"><span class="skill-name">FastAPI</span><span class="skill-level" data-target="80">0%</span></div><div class="progress-bar"><div class="progress" data-w="80%"></div></div></div>
+        <div class="skill-item"><div class="skill-header"><span class="skill-name">Flutter</span><span class="skill-level" data-target="75">0%</span></div><div class="progress-bar"><div class="progress" data-w="75%"></div></div></div>
       </div>
       <div class="skill-card">
-        <h3><i class="fas fa-shield-alt"></i> Sécurité & Outils</h3>
-        <div class="skill-item"><div class="skill-header"><span class="skill-name">Cybersécurité</span><span class="skill-level" data-target="80">0%</span></div><div class="progress-bar"><div class="progress" data-w="80%"></div></div></div>
-        <div class="skill-item"><div class="skill-header"><span class="skill-name">Cryptographie</span><span class="skill-level" data-target="75">0%</span></div><div class="progress-bar"><div class="progress" data-w="75%"></div></div></div>
-        <div class="skill-item"><div class="skill-header"><span class="skill-name">Django / Flask</span><span class="skill-level" data-target="88">0%</span></div><div class="progress-bar"><div class="progress" data-w="88%"></div></div></div>
+        <h3><i class="fas fa-database"></i> Données & Outils</h3>
+        <div class="skill-item"><div class="skill-header"><span class="skill-name">MySQL</span><span class="skill-level" data-target="90">0%</span></div><div class="progress-bar"><div class="progress" data-w="90%"></div></div></div>
+        <div class="skill-item"><div class="skill-header"><span class="skill-name">MongoDB</span><span class="skill-level" data-target="75">0%</span></div><div class="progress-bar"><div class="progress" data-w="75%"></div></div></div>
+        <div class="skill-item"><div class="skill-header"><span class="skill-name">Git / GitHub</span><span class="skill-level" data-target="85">0%</span></div><div class="progress-bar"><div class="progress" data-w="85%"></div></div></div>
+        <div class="skill-item"><div class="skill-header"><span class="skill-name">IA appliquée (Groq)</span><span class="skill-level" data-target="80">0%</span></div><div class="progress-bar"><div class="progress" data-w="80%"></div></div></div>
       </div>
     </div>
   </section>
@@ -325,10 +415,12 @@
       <p class="section-desc">Des solutions adaptées à vos besoins, de la conception au déploiement.</p>
     </div>
     <div class="services-grid">
-      <div class="service-card"><div class="service-icon"><i class="fas fa-laptop-code"></i></div><h3>Développement Web</h3><p>Création de sites web modernes, applications web et APIs performantes adaptées à vos besoins.</p></div>
-      <div class="service-card"><div class="service-icon"><i class="fab fa-windows"></i></div><h3>Installation Systèmes</h3><p>Installation de Windows, logiciels métier, drivers imprimantes et configuration complète.</p></div>
-      <div class="service-card"><div class="service-icon"><i class="fas fa-tools"></i></div><h3>Réparation Matérielle</h3><p>Réparation d'ordinateurs, récupération de données, USB et autres périphériques.</p></div>
-      <div class="service-card"><div class="service-icon"><i class="fas fa-shield-virus"></i></div><h3>Sécurité Informatique</h3><p>Installation d'antivirus, audit de sécurité et protection de votre infrastructure.</p></div>
+      <div class="service-card"><div class="service-icon"><i class="fas fa-laptop-code"></i></div><h3>Développement Web</h3><p>Sites web modernes, applications et APIs performantes adaptées à vos besoins.</p></div>
+      <div class="service-card"><div class="service-icon"><i class="fas fa-mobile-screen-button"></i></div><h3>Développement Mobile</h3><p>Applications mobiles Flutter, du prototype au déploiement.</p></div>
+      <div class="service-card"><div class="service-icon"><i class="fas fa-robot"></i></div><h3>Intelligence Artificielle</h3><p>Intégration d'IA générative dans des applications concrètes (génération de code, chatbots, automatisation).</p></div>
+      <div class="service-card"><div class="service-icon"><i class="fas fa-chalkboard-user"></i></div><h3>Formation Informatique</h3><p>Formation à KoboToolbox, bureautique et initiation à la programmation.</p></div>
+      <div class="service-card"><div class="service-icon"><i class="fas fa-tools"></i></div><h3>Maintenance Informatique</h3><p>Installation, réparation, configuration réseau et imprimantes.</p></div>
+      <div class="service-card"><div class="service-icon"><i class="fas fa-shield-virus"></i></div><h3>Sécurité Informatique</h3><p>Audit de sécurité, protection des données et de votre infrastructure.</p></div>
     </div>
   </section>
 
@@ -340,41 +432,72 @@
     </div>
     <div class="projects-grid">
       <div class="project-card">
-        <div class="project-thumb"><i class="fas fa-receipt"></i></div>
+        <div class="project-thumb"><i class="fas fa-diagram-project"></i><span class="project-flagship">Projet de fin d'études</span></div>
         <div class="project-body">
-          <h3 class="project-title">Générateur de reçus</h3>
-          <p class="project-desc">Application Web & Electron pour la gestion et l'impression de reçus pour cabines téléphoniques.</p>
-          <div class="project-tags"><span class="tag">Electron</span><span class="tag">JavaScript</span><span class="tag">HTML/CSS</span></div>
-          <div class="project-links"><a href="https://github.com/ABAKAR5" class="project-link" target="_blank"><i class="fas fa-external-link-alt"></i> Démo</a><a href="https://github.com/ABAKAR5" class="project-link" target="_blank"><i class="fab fa-github"></i> Code</a></div>
+          <h3 class="project-title">UML To Code</h3>
+          <p class="project-desc">Convertisseur qui transforme des diagrammes de classes UML (XMI, image ou PDF) en code Python ou PHP, avec génération assistée par IA (Groq Llama 3.3).</p>
+          <div class="project-tags"><span class="tag">React</span><span class="tag">Flask</span><span class="tag">IA</span></div>
+          <div class="project-links"><a href="https://uml-to-code.vercel.app" class="project-link" target="_blank"><i class="fas fa-external-link-alt"></i> Démo</a><a href="https://github.com/ABAKAR5/uml-to-code" class="project-link" target="_blank"><i class="fab fa-github"></i> Code</a></div>
         </div>
       </div>
       <div class="project-card">
-        <div class="project-thumb"><i class="fas fa-globe"></i></div>
+        <div class="project-thumb"><i class="fas fa-heart"></i></div>
         <div class="project-body">
-          <h3 class="project-title">Site CJEO</h3>
-          <p class="project-desc">Site web moderne pour l'association CJEO avec gestion de contenu et espace membre.</p>
-          <div class="project-tags"><span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">Bootstrap</span></div>
-          <div class="project-links"><a href="https://github.com/ABAKAR5" class="project-link" target="_blank"><i class="fas fa-external-link-alt"></i> Démo</a><a href="https://github.com/ABAKAR5" class="project-link" target="_blank"><i class="fab fa-github"></i> Code</a></div>
+          <h3 class="project-title">INSTA Rencontre</h3>
+          <p class="project-desc">Plateforme sociale étudiante bilingue (FR/AR avec support RTL), authentification sécurisée et gestion de profils.</p>
+          <div class="project-tags"><span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">PDO</span></div>
+          <div class="project-links"><a href="https://github.com/ABAKAR5" class="project-link" target="_blank"><i class="fab fa-github"></i> Code</a></div>
         </div>
       </div>
       <div class="project-card">
-        <div class="project-thumb"><i class="fas fa-university"></i></div>
+        <div class="project-thumb"><i class="fas fa-language"></i></div>
         <div class="project-body">
-          <h3 class="project-title">Site Web INSTA</h3>
-          <p class="project-desc">Site institutionnel pour l'INSTA avec gestion de contenu et espace membre. Mini-projet Niveau 2.</p>
-          <div class="project-tags"><span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">Bootstrap</span><span class="tag">HTML/CSS</span></div>
-          <div class="project-links"><a href="https://github.com/ABAKAR5" class="project-link" target="_blank"><i class="fas fa-external-link-alt"></i> Démo</a><a href="https://github.com/ABAKAR5" class="project-link" target="_blank"><i class="fab fa-github"></i> Code</a></div>
+          <h3 class="project-title">Hawa AI</h3>
+          <p class="project-desc">Application mobile d'apprentissage de la langue Maba, pour valoriser et transmettre une langue locale du Tchad.</p>
+          <div class="project-tags"><span class="tag">Flutter</span><span class="tag">Mobile</span><span class="tag">Langue</span></div>
+          <div class="project-links"><a href="https://github.com/ABAKAR5" class="project-link" target="_blank"><i class="fab fa-github"></i> Code</a></div>
         </div>
       </div>
       <div class="project-card">
         <div class="project-thumb"><i class="fas fa-desktop"></i></div>
         <div class="project-body">
-          <h3 class="project-title">Outils de gestion</h3>
-          <p class="project-desc">Solutions logicielles desktop pour la gestion de cybercafés et services locaux.</p>
-          <div class="project-tags"><span class="tag">Python</span><span class="tag">SQLite</span><span class="tag">PyQt</span></div>
-          <div class="project-links"><a href="https://github.com/ABAKAR5" class="project-link" target="_blank"><i class="fas fa-external-link-alt"></i> Démo</a><a href="https://github.com/ABAKAR5" class="project-link" target="_blank"><i class="fab fa-github"></i> Code</a></div>
+          <h3 class="project-title">Gestion Cyber Café</h3>
+          <p class="project-desc">Application de gestion des impressions, des clients et des revenus pour un cybercafé.</p>
+          <div class="project-tags"><span class="tag">Python</span><span class="tag">SQLite</span></div>
+          <div class="project-links"><a href="https://github.com/ABAKAR5" class="project-link" target="_blank"><i class="fab fa-github"></i> Code</a></div>
         </div>
       </div>
+      <div class="project-card">
+        <div class="project-thumb"><i class="fas fa-plug"></i></div>
+        <div class="project-body">
+          <h3 class="project-title">API REST FastAPI</h3>
+          <p class="project-desc">API avec authentification JWT, opérations CRUD complètes et documentation Web Services.</p>
+          <div class="project-tags"><span class="tag">FastAPI</span><span class="tag">JWT</span></div>
+          <div class="project-links"><a href="https://github.com/ABAKAR5" class="project-link" target="_blank"><i class="fab fa-github"></i> Code</a></div>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-thumb"><i class="fas fa-receipt"></i></div>
+        <div class="project-body">
+          <h3 class="project-title">Générateur de reçus</h3>
+          <p class="project-desc">Application Web & Electron pour la gestion et l'impression de reçus pour cabines téléphoniques.</p>
+          <div class="project-tags"><span class="tag">Electron</span><span class="tag">JavaScript</span></div>
+          <div class="project-links"><a href="https://github.com/ABAKAR5" class="project-link" target="_blank"><i class="fab fa-github"></i> Code</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <div class="section-header">
+      <span class="section-label">Reconnaissances</span>
+      <h2>Certifications</h2>
+    </div>
+    <div class="certs-grid">
+      <div class="cert-card"><div class="cert-icon"><i class="fas fa-certificate"></i></div><div><div class="cert-title">Formation KoboToolbox</div><div class="cert-org">CCIT Abéché</div></div></div>
+      <div class="cert-card"><div class="cert-icon"><i class="fas fa-certificate"></i></div><div><div class="cert-title">Formation Art Oratoire</div><div class="cert-org">Prise de parole en public</div></div></div>
+      <div class="cert-card"><div class="cert-icon"><i class="fas fa-certificate"></i></div><div><div class="cert-title">Développement Web</div><div class="cert-org">Formation continue</div></div></div>
+      <div class="cert-card"><div class="cert-icon"><i class="fas fa-certificate"></i></div><div><div class="cert-title">Développement Mobile</div><div class="cert-org">Formation continue</div></div></div>
     </div>
   </section>
 
@@ -444,7 +567,7 @@
     <div class="footer-grid">
       <div class="footer-col">
         <h4>Abakar.</h4>
-        <p>Développeur Full-Stack passionné basé à Abéché, Tchad. Je crée des solutions numériques innovantes et performantes.</p>
+        <p>Développeur Full-Stack passionné basé à Abéché, Tchad. Fondateur de TchadDev. Je crée des solutions numériques innovantes et performantes.</p>
         <div class="contact-socials" style="margin-top:1.5rem;">
           <a href="https://github.com/ABAKAR5" class="social-btn" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
           <a href="https://www.linkedin.com/in/ABAKAR-MAHAMAT-BRAHIM" class="social-btn" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
@@ -457,7 +580,7 @@
         <ul class="footer-links">
           <li><a href="#accueil"><i class="fas fa-chevron-right"></i> Accueil</a></li>
           <li><a href="#about"><i class="fas fa-chevron-right"></i> À propos</a></li>
-          <li><a href="#skills"><i class="fas fa-chevron-right"></i> Compétences</a></li>
+          <li><a href="#parcours"><i class="fas fa-chevron-right"></i> Parcours</a></li>
           <li><a href="#projects"><i class="fas fa-chevron-right"></i> Projets</a></li>
           <li><a href="#gallery"><i class="fas fa-chevron-right"></i> Galerie</a></li>
           <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
@@ -467,8 +590,8 @@
         <h4>Services</h4>
         <ul class="footer-links">
           <li><a href="#services"><i class="fas fa-chevron-right"></i> Développement Web</a></li>
-          <li><a href="#services"><i class="fas fa-chevron-right"></i> Applications Desktop</a></li>
-          <li><a href="#services"><i class="fas fa-chevron-right"></i> Maintenance</a></li>
+          <li><a href="#services"><i class="fas fa-chevron-right"></i> Développement Mobile</a></li>
+          <li><a href="#services"><i class="fas fa-chevron-right"></i> Intelligence Artificielle</a></li>
           <li><a href="#services"><i class="fas fa-chevron-right"></i> Formation</a></li>
         </ul>
       </div>
@@ -481,10 +604,11 @@
         </ul>
       </div>
     </div>
-    <div class="footer-bottom"><p>&copy; 2025 <span>Abakar Mahamat Brahim</span>. Tous droits réservés.</p></div>
+    <div class="footer-bottom"><p>&copy; 2026 <span>Abakar Mahamat Brahim</span>. Tous droits réservés.</p></div>
   </footer>
 
-  <a href="#accueil" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
+  <a href="https://wa.me/23560449070" class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+  <a href="#accueil" class="back-to-top" id="backToTop" aria-label="Retour en haut"><i class="fas fa-arrow-up"></i></a>
 
   <script>
     // Mobile menu
@@ -494,15 +618,6 @@
     // Active nav
     const allSections = document.querySelectorAll('section[id], header[id]');
     const navLinks = document.querySelectorAll('nav ul a');
-    new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          navLinks.forEach(l => l.classList.remove('active'));
-          const a = document.querySelector(`nav ul a[href="#${e.target.id}"]`);
-          if (a) a.classList.add('active');
-        }
-      });
-    }, { threshold: 0.4, rootMargin: '-50px 0px -50px 0px' }).observe(...[allSections].flat().map ? [...allSections] : []);
     allSections.forEach(s => {
       new IntersectionObserver(([e]) => {
         if (e.isIntersecting) {
@@ -525,6 +640,25 @@
     // Back to top
     const btt = document.getElementById('backToTop');
     window.addEventListener('scroll', () => btt.classList.toggle('show', scrollY > 300));
+
+    // Typewriter effect for hero subtitle
+    const roles = ['Ingénieur Logiciel', 'Développeur Full-Stack', 'Formateur CCIT', 'Fondateur de TchadDev'];
+    const twEl = document.getElementById('typewriter');
+    let roleIdx = 0, charIdx = 0, deleting = false;
+    function typeLoop() {
+      const current = roles[roleIdx];
+      if (!deleting) {
+        charIdx++;
+        twEl.textContent = current.slice(0, charIdx);
+        if (charIdx === current.length) { deleting = true; setTimeout(typeLoop, 1400); return; }
+      } else {
+        charIdx--;
+        twEl.textContent = current.slice(0, charIdx);
+        if (charIdx === 0) { deleting = false; roleIdx = (roleIdx + 1) % roles.length; }
+      }
+      setTimeout(typeLoop, deleting ? 35 : 70);
+    }
+    typeLoop();
 
     // Progress bars
     const barObs = new IntersectionObserver((entries, obs) => {
@@ -573,7 +707,7 @@
     const revealObs = new IntersectionObserver((entries, obs) => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); obs.unobserve(e.target); } });
     }, { threshold: 0.15 });
-    document.querySelectorAll('.service-card, .project-card, .gallery-item').forEach(el => revealObs.observe(el));
+    document.querySelectorAll('.service-card, .project-card, .gallery-item, .timeline-item').forEach(el => revealObs.observe(el));
 
     // Lightbox
     let ci = 0;
