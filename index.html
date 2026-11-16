@@ -42,8 +42,10 @@
     .nav.scrolled{background:rgba(5,8,22,.82)}
     .nav-inner{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:1rem}
     .brand{font-weight:800;letter-spacing:-.03em}.brand span{background:linear-gradient(90deg,var(--p),var(--p2));-webkit-background-clip:text;color:transparent}
-    .nav-links{display:flex;list-style:none;gap:1rem;align-items:center}
-    .nav-links a{color:var(--muted);font-size:.9rem;font-weight:500;transition:.2s}.nav-links a:hover,.nav-links a.active{color:#fff}
+    .nav-links{position:relative;display:flex;list-style:none;gap:.25rem;align-items:center;padding:.25rem;border-radius:999px}
+    .nav-indicator{position:absolute;top:.25rem;left:0;height:calc(100% - .5rem);border-radius:999px;background:linear-gradient(135deg,rgba(124,58,237,.35),rgba(34,211,238,.22));border:1px solid rgba(167,139,250,.35);box-shadow:0 8px 24px rgba(124,58,237,.18);transition:transform .35s cubic-bezier(.22,.8,.2,1),width .35s cubic-bezier(.22,.8,.2,1),opacity .2s;opacity:0;pointer-events:none;z-index:0}
+    .nav-links li{position:relative;z-index:1}
+    .nav-links a{display:block;color:var(--muted);font-size:.9rem;font-weight:500;transition:color .2s;padding:.55rem .85rem;border-radius:999px}.nav-links a:hover,.nav-links a.active{color:#fff}
     .menu{display:none;background:none;border:0;color:#fff;font-size:1.2rem}
     /* hero */
     .hero{min-height:100vh;display:grid;align-items:center;padding-top:6rem;overflow:hidden}
@@ -129,7 +131,7 @@
     .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}.reveal.show{opacity:1;transform:none}
     .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
     @media (max-width:1020px){.hero-grid,.grid-2,.contact-grid{grid-template-columns:1fr}.projects,.grid-3,.skill-groups{grid-template-columns:repeat(2,1fr)}.gallery,.mini-grid{grid-template-columns:repeat(2,1fr)}.foot{grid-template-columns:1fr 1fr}.visual{order:-1}}
-    @media (max-width:760px){.section{padding:4.5rem 0}.menu{display:block}.nav-links{position:fixed;top:72px;left:1rem;right:1rem;padding:1rem;border-radius:18px;background:rgba(11,16,36,.98);border:1px solid var(--border);flex-direction:column;align-items:stretch;display:none}.nav-links.open{display:flex}.projects,.grid-3,.skill-groups,.gallery,.mini-grid,.stats,.foot,form .row{grid-template-columns:1fr}.fa{left:0}.fb{right:0}}
+    @media (max-width:760px){.section{padding:4.5rem 0}.menu{display:block}.nav-links{position:fixed;top:72px;left:1rem;right:1rem;padding:1rem;border-radius:18px;background:rgba(11,16,36,.98);border:1px solid var(--border);flex-direction:column;align-items:stretch;display:none}.nav-links.open{display:flex}.nav-indicator{display:none}.nav-links a{padding:.7rem .8rem}.projects,.grid-3,.skill-groups,.gallery,.mini-grid,.stats,.foot,form .row{grid-template-columns:1fr}.fa{left:0}.fb{right:0}}
     @media (prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
   </style>
 </head>
@@ -139,6 +141,7 @@
       <a href="#accueil" class="brand">Abakar <span>(AB VIP)</span></a>
       <button class="menu" id="menuBtn" aria-label="Menu"><i class="fas fa-bars"></i></button>
       <ul class="nav-links" id="navLinks">
+        <span class="nav-indicator" id="navIndicator" aria-hidden="true"></span>
         <li><a href="#accueil" class="active">Accueil</a></li>
         <li><a href="#about">À propos</a></li>
         <li><a href="#parcours">Parcours</a></li>
@@ -546,13 +549,33 @@
     const nav = document.getElementById('nav');
     const sections = document.querySelectorAll('header[id], section[id]');
     const links = document.querySelectorAll('.nav-links a');
+    const indicator = document.getElementById('navIndicator');
+    const navList = document.getElementById('navLinks');
+    const moveIndicator = (el) => {
+      if (!indicator || !el || window.innerWidth <= 760) { if(indicator) indicator.style.opacity = '0'; return; }
+      const listRect = navList.getBoundingClientRect();
+      const rect = el.getBoundingClientRect();
+      indicator.style.width = rect.width + 'px';
+      indicator.style.transform = `translateX(${rect.left - listRect.left}px)`;
+      indicator.style.opacity = '1';
+    };
+    const syncIndicator = () => moveIndicator(navList.querySelector('a.active') || links[0]);
     const onScroll = () => {
       nav.classList.toggle('scrolled', window.scrollY > 20);
       let current = 'accueil';
       sections.forEach(sec => { if (window.scrollY >= sec.offsetTop - 120) current = sec.id; });
       links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + current));
+      syncIndicator();
     };
-    window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+    links.forEach(l => {
+      l.addEventListener('mouseenter', () => moveIndicator(l));
+      l.addEventListener('focus', () => moveIndicator(l));
+    });
+    navList.addEventListener('mouseleave', syncIndicator);
+    window.addEventListener('resize', syncIndicator);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('load', syncIndicator);
+    onScroll();
 
     const roles = ['Développeur Full-Stack', 'Étudiant en Génie Logiciel (INSTA)', 'Formateur en informatique au CCIT', 'Créateur de UML-to-Code', 'Passionné par l\'IA & l\'innovation'];
     const tw = document.getElementById('typewriter');
